@@ -8,6 +8,7 @@ import customerRoutes from "./routes/customerRoutes.js";
 import enquiryRoutes from "./routes/enquiryRoutes.js";
 import quotationRoutes from "./routes/quotationRoutes.js";
 import salesOrderRoutes from "./routes/salesOrderRoutes.js";
+import inventoryReservationRoutes from "./routes/inventoryReservationRoutes.js";
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.use("/api/customers", customerRoutes);
 app.use("/api/enquiries", enquiryRoutes);
 app.use("/api/quotations", quotationRoutes);
 app.use("/api/sales-orders",salesOrderRoutes );
+app.use("/api/sales-orders", inventoryReservationRoutes);
 
 // Test route
 app.get("/", (req, res) => {
