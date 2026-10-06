@@ -9,6 +9,7 @@ import enquiryRoutes from "./routes/enquiryRoutes.js";
 import quotationRoutes from "./routes/quotationRoutes.js";
 import salesOrderRoutes from "./routes/salesOrderRoutes.js";
 import inventoryReservationRoutes from "./routes/inventoryReservationRoutes.js";
+import dispatchRoutes from "./routes/dispatchRoutes.js";
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ app.use("/api/enquiries", enquiryRoutes);
 app.use("/api/quotations", quotationRoutes);
 app.use("/api/sales-orders",salesOrderRoutes );
 app.use("/api/sales-orders", inventoryReservationRoutes);
+app.use("/api/dispatches", dispatchRoutes);
 
 // Test route
 app.get("/", (req, res) => {
