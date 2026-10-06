@@ -10,6 +10,8 @@ import quotationRoutes from "./routes/quotationRoutes.js";
 import salesOrderRoutes from "./routes/salesOrderRoutes.js";
 import inventoryReservationRoutes from "./routes/inventoryReservationRoutes.js";
 import dispatchRoutes from "./routes/dispatchRoutes.js";
+import inventoryRoutes from "./routes/inventoryRoutes.js";
+
 
 dotenv.config();
 
@@ -30,6 +32,7 @@ app.use("/api/quotations", quotationRoutes);
 app.use("/api/sales-orders",salesOrderRoutes );
 app.use("/api/sales-orders", inventoryReservationRoutes);
 app.use("/api/dispatches", dispatchRoutes);
+app.use("/api/inventory", inventoryRoutes);
 
 // Test route
 app.get("/", (req, res) => {

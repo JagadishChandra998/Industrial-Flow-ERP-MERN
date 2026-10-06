@@ -4,7 +4,7 @@ import User from "../models/User.js";
 
 export const register = async (req, res) => {
     try {
-        const { fullName, email, password, role } = req.body;
+        const { fullName, email, password } = req.body;
 
         if (!fullName || !email || !password) {
             return res.status(400).json({
@@ -13,7 +13,18 @@ export const register = async (req, res) => {
             });
         }
 
-        const existingUser = await User.findOne({ email });
+        if (password.length < 6) {
+            return res.status(400).json({
+                success: false,
+                message: "Password must be at least 6 characters",
+            });
+        }
+
+        const existingUser = await User.findOne(
+            {
+                email:email.toLowerCase().trim(),
+            }
+        );
 
         if (existingUser) {
             return res.status(409).json({
@@ -28,7 +39,7 @@ export const register = async (req, res) => {
             fullName,
             email,
             password: hashedPassword,
-            role: role || "SALES_USER",
+            role:"SALES_USER",
         });
 
         res.status(201).json({
